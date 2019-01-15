@@ -248,3 +248,46 @@ void Alien::Update()
 		x = x - vx;
 	}
 }
+
+void Alien::CheckPos()
+{
+	if (x > 770)
+	{
+		direction = 1;
+		y += 20;
+	}
+}
+
+void Alien::Destroy()
+{
+	destroyed = true;
+}
+
+int Alien::GetWidth()
+{
+	return width;
+}
+
+int Alien::GetHeight()
+{
+	return height;
+}
+
+void Alien::SetSprite(int sprite_in)
+{
+	switch (sprite_in)
+	{
+	case 1:
+		sprite = 1;
+		break;
+	case 2:
+		sprite = 2;
+		break;
+	case 3:
+		sprite = 3;
+		break;
+	case 4:
+		sprite = 4;
+		break;
+	}
+}

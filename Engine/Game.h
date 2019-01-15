@@ -26,6 +26,7 @@
 #include "Alien.h"
 #include "Turret.h"
 #include "Laser.h"
+#include "Background.h"
 
 class Game
 {
@@ -50,9 +51,14 @@ private:
 	Alien alien1;
 	Alien alien2;
 	Alien alien3;
+	static constexpr int aliennum = 12;
+	Alien alien[aliennum];
 
 	Turret turret;
 
 	Laser laser0;
+	static constexpr int lasernum = 100;
+	Laser laser[lasernum];
+	int laser_i = 0;
 	/********************************/
 };

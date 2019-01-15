@@ -22,6 +22,7 @@
 #include "Game.h"
 #include "Alien.h"
 #include "Laser.h"
+#include "Background.h"
 
 Game::Game( MainWindow& wnd )
 	:
@@ -108,6 +109,10 @@ void Game::UpdateModel()
 
 int Game::UpdateAlienDirection(int Alien0X, int Alien1X, int Alien2X, int Alien3X, int direction)
 {
+	for (int i = 0; i < aliennum; ++i)
+	{
+		if ( alien[i].x)
+	}
 	if (Alien0X > 700 ||
 		Alien1X > 700 ||
 		Alien2X > 700 ||
@@ -139,21 +144,21 @@ int Game::UpdateAlienDirection(int Alien0X, int Alien1X, int Alien2X, int Alien3
 
 void Game::ComposeFrame()
 {
-	if (!alien0.destroyed)
+	for (int i = 0; i < aliennum; ++i)
 	{
-		alien0.Draw(gfx);
-	}
-	if (!alien1.destroyed)
-	{
-		alien1.Draw(gfx);
-	}if (!alien2.destroyed)
-	{
-		alien2.Draw(gfx);
-	}if (!alien3.destroyed)
-	{
-		alien3.Draw(gfx);
+		if (!alien[i].destroyed)
+		{
+			alien[i].Draw(gfx);
+		}
 	}
 
 	turret.Draw(gfx);
-	laser0.Draw(gfx);
+
+	for (int i = 0; i < lasernum; ++i)
+	{
+		if (laser[i].exists)
+		{
+			laser[i].Draw(gfx);
+		}
+	}
 }
